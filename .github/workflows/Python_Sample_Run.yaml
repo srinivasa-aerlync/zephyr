@@ -1,14 +1,6 @@
 name: Zephyr samples python script
 
-on:
-  push:
-    branches:
-    - main
-    - v*-branch
-    paths:
-    - 'scripts/pylib/build_helpers/**'
-    - '.github/workflows/pylib_tests.yml'
-
+on: [push]
 jobs:
   pylib-tests:
     name: Pylib Unit Tests on self-hosted
