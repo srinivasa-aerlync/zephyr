@@ -2,11 +2,13 @@ name: Python venv
 run-name: ${{ github.actor }} is testing penv
 on: [workflow_dispatch, push]
 jobs:
-  usevenv:
+  utilizing_python_venv:
+    name: job 1 - python venv
     runs-on: self-hosted
     steps:
     - name: Utilizing the self-hosted machine zephyr venv
       id: zephyr Python venv
+    - run: echo Hello Srinivasa, this is Python env run
     - run: export ZEPHYR_BASE=$PWD
     - run: source zephyr-env.sh
     - run: ls -la
