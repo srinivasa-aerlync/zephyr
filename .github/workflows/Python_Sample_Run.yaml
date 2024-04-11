@@ -26,8 +26,15 @@ jobs:
           ${{ runner.os }}-pip-${{ matrix.python-version }}
     - name: install-packages
       run: |
+        echo Hello Srinivasa, this is Python env run
         pip3 install -r scripts/requirements-base.txt -r scripts/requirements-build-test.txt
-        - run: echo Hello Srinivasa, this is Python env run
+        
+        steps:
+         - name: Display the path
+         shell: python
+         run: |
+           import os
+           print(os.environ['PATH'])
     - run: export ZEPHYR_BASE=$PWD
     - run: source zephyr-env.sh
     - run: ls -la
