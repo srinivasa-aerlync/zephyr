@@ -12,9 +12,9 @@ jobs:
     - run: pwd
     - run: source ~/zephyrproject/.venv/bin/activate
     - run: echo source ~/zephyrproject/.venv/bin/activate
-    - name: zephyr tool_chain
-      env:
-        ZEPHYR_BASE: /home/aerlync/zephyrproject
-        ZEPHYR_TOOLCHAIN_VARIANT: zephyr
-    - run: echo "Run build_helpers tests"  
-    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+    #- name: zephyr tool_chain
+    #  env:
+    #    ZEPHYR_BASE: /home/aerlync/zephyrproject
+    #    ZEPHYR_TOOLCHAIN_VARIANT: zephyr
+    #- run: echo "Run build_helpers tests"  
+    #- run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
