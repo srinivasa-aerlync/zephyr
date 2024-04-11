@@ -6,6 +6,11 @@ jobs:
     name: job 1 - python venv
     runs-on: self-hosted
     steps:
+    - uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          README.md
+        sparse-checkout-cone-mode: false
     - name: Utilizing the self-hosted machine zephyr venv
       id: zephyr Python venv
     - run: echo Hello Srinivasa, this is Python env run
