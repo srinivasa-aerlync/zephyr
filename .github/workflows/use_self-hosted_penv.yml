@@ -6,8 +6,7 @@ jobs:
     steps:
     - name: Utilizing the self-hosted machine zephyr venv
       id: zephyr Python venv
-      env:
-        run: |
+      run: |
          export ZEPHYR_BASE=$PWD
          source zephyr-env.sh
          # debug
@@ -20,5 +19,4 @@ jobs:
         ZEPHYR_BASE: /home/aerlync/zephyrproject
         ZEPHYR_TOOLCHAIN_VARIANT: zephyr
         run: |
-           echo "Run build_helpers tests"
-           
+           echo "Run build_helpers tests"  
