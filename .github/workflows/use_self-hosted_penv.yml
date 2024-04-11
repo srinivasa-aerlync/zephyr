@@ -6,17 +6,15 @@ jobs:
     steps:
     - name: Utilizing the self-hosted machine zephyr venv
       id: zephyr Python venv
-      run: |
-         export ZEPHYR_BASE=$PWD
-         source zephyr-env.sh
-         # debug
-         ls -la
-         pwd
-         source ~/zephyrproject/.venv/bin/activate
-         echo source ~/zephyrproject/.venv/bin/activate
+    - run: export ZEPHYR_BASE=$PWD
+    - run: source zephyr-env.sh
+    - run: ls -la
+    - run: pwd
+    - run: source ~/zephyrproject/.venv/bin/activate
+    - run: echo source ~/zephyrproject/.venv/bin/activate
     - name: zephyr tool_chain
-    env:
+      env:
         ZEPHYR_BASE: /home/aerlync/zephyrproject
         ZEPHYR_TOOLCHAIN_VARIANT: zephyr
-        run: |
-           echo "Run build_helpers tests"  
+    - run: echo "Run build_helpers tests"  
+    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
