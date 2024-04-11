@@ -1,6 +1,6 @@
 name: Zephyr samples python script
 
-on: [push]
+on: [workflow_dispatch]
 jobs:
   pylib-tests:
     name: Pylib Unit Tests on self-hosted
