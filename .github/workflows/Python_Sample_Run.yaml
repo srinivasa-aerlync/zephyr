@@ -27,6 +27,13 @@ jobs:
     - name: install-packages
       run: |
         pip3 install -r scripts/requirements-base.txt -r scripts/requirements-build-test.txt
+        - run: echo Hello Srinivasa, this is Python env run
+    - run: export ZEPHYR_BASE=$PWD
+    - run: source zephyr-env.sh
+    - run: ls -la
+    - run: pwd
+    - run: source ~/zephyrproject/.venv/bin/activate
+    - run: echo source ~/zephyrproject/.venv/bin/activate
     - name: Run pytest for build_helpers
       env:
         ZEPHYR_BASE: ./
