@@ -1,21 +1,7 @@
 name: Hello World (Multiplatform)
 
-on:
-  push:
-    branches:
-      - main
-      - v*-branch
-      - collab-*
-  pull_request:
-    branches:
-      - main
-      - v*-branch
-      - collab-*
-    paths:
-      - 'scripts/build/**'
-      - 'scripts/requirements*.txt'
-      - '.github/workflows/hello_world_multiplatform.yaml'
-      - 'SDK_VERSION'
+on: [workflow_dispatch]
+    
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.head_ref || github.ref }}
