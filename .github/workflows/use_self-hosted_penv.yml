@@ -1,4 +1,5 @@
 name: Zephyr samples python script
+run-name: ${{ github.actor }} is testing penv
 on: [workflow_dispatch, push]
 jobs:
   usevenv:
