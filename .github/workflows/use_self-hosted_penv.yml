@@ -14,4 +14,4 @@ jobs:
         source ~/zephyrproject/.venv/bin/activate
 
     - name: Run Python script
-      run: python your_script.py
+      run: python /home/aerlync/Desktop/Aerlync/Atmosic_Automation/devicedetails.py
