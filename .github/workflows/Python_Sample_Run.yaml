@@ -27,6 +27,11 @@ jobs:
     - name: install-packages
       run: |
         echo Hello Srinivasa, this is Python env run
+    - name: Display the path
+      shell: python
+      run: |
+        import os
+        print(os.environ['PATH'])
         pip3 install -r scripts/requirements-base.txt -r scripts/requirements-build-test.txt
         
         steps:
