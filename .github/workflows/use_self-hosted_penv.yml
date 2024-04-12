@@ -11,6 +11,11 @@ jobs:
         sparse-checkout: |
           README.rst
         sparse-checkout-cone-mode: false
+    - name: Display the path
+      shell: python
+      run: |
+        import os
+        print(os.environ['PATH'])
     - name: Utilizing the self-hosted machine zephyr venv
       id: zephyr Python venv
     - run: echo Hello Srinivasa, this is Python env run
