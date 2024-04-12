@@ -1,5 +1,4 @@
 name: Python venv
-run-name: ${{ github.actor }} is testing penv
 on: [workflow_dispatch, push]
 jobs:
   utilizing_python_venv:
@@ -12,22 +11,22 @@ jobs:
           README.rst
         sparse-checkout-cone-mode: false
     - name: Display the path
-      shell: python
       run: |
         import os
-        print(os.environ['PATH'])
+        echo $(os.environ['PATH'])
+      shell: python
     - name: Utilizing the self-hosted machine zephyr venv
       id: zephyr Python venv
-    - run: echo Hello Srinivasa, this is Python env run
-    - run: export ZEPHYR_BASE=$PWD
-    - run: source zephyr-env.sh
-    - run: ls -la
-    - run: pwd
-    - run: source ~/zephyrproject/.venv/bin/activate
-    - run: echo source ~/zephyrproject/.venv/bin/activate
-    #- name: zephyr tool_chain
-    #  env:
-    #    ZEPHYR_BASE: /home/aerlync/zephyrproject
-    #    ZEPHYR_TOOLCHAIN_VARIANT: zephyr
-    #- run: echo "Run build_helpers tests"  
-    #- run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      run: echo "Hello Srinivasa, this is Python env run"
+    - name: Set ZEPHYR_BASE
+      run: echo "ZEPHYR_BASE=$PWD" >> $GITHUB_ENV
+    - name: Source zephyr-env.sh
+      run: source zephyr-env.sh
+    - name: List files
+      run: ls -la
+    - name: Print working directory
+      run: pwd
+    - name: Activate Python venv
+      run: source ~/zephyrproject/.venv/bin/activate
+    - name: Echo Python venv activation command
+      run: echo "source ~/zephyrproject/.venv/bin/activate"
