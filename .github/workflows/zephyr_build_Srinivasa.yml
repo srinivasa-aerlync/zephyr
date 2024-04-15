@@ -32,8 +32,8 @@ jobs:
       #working-directory: zephyr
       run: |
         pip3 install west
-        west init -m git@github.com:Atmosic/apps zephyr/
-        west init -l zephyr/
+        west init -m git@github.com:Atmosic/apps 
+        #west init -l zephyr/
         #cd zephyr
         west update
         west zephyr-export
