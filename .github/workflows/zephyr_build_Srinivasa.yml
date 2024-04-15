@@ -20,9 +20,9 @@ jobs:
       with:
           python-version: 3.12
 
-    - name: Create virtual environment
-      #working-directory: zephy
-      run: python3 -m venv zephyr/.venv
+    #- name: Create virtual environment
+    #  #working-directory: zephy
+    #  run: python3 -m venv zephyr/.venv
 
     #- name: Activate virtual environment
     #  run: |
@@ -33,7 +33,7 @@ jobs:
       run: |
         pip3 install west
         west init -m git@github.com:Atmosic/apps zephyr/
-        #west init -l zephyr/
+        west init -l zephyr/
         #cd zephyr
         west update
         west zephyr-export
