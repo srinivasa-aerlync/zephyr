@@ -42,6 +42,7 @@ jobs:
 
     - name: Build Zephyr sample
       run: |
+        export ZEPHYR_SDK_INSTALL_DIR=/home/aerlync/zephyr-sdk-0.16.4
         source zephyr/zephyr-env.sh
         #west build -p auto -b ATMEVK-3330-QN-5 zephyr/samples/hello_world
         zephyr/boards/arm/atm33evk/support/run.sh -e -d -w LL -a zephyr/samples/hello_world -j -s 900028963 ATMEVK-3330-QN-5
