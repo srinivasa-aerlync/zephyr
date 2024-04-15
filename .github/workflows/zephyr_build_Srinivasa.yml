@@ -24,9 +24,9 @@ jobs:
       #working-directory: zephy
       run: python3 -m venv zephyr/.venv
 
-    - name: Activate virtual environment
-      run: |
-          source zephyr/venv/bin/activate
+    #- name: Activate virtual environment
+    #  run: |
+    #      source zephyr/venv/bin/activate
           
     - name: Setup Zephyr environment
       #working-directory: zephyr
