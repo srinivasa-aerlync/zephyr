@@ -10,17 +10,32 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install dependencies
+      working-directory: zephyr
       run: |
         sudo apt update
         sudo apt install -y --no-install-recommends git ninja-build gperf ccache dfu-util device-tree-compiler wget python3-pip python3-setuptools python3-wheel xz-utils file make gcc gcc-multilib g++-multilib libsdl2-dev
 
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+          python-version: 3.12
+
+    - name: Create virtual environment
+      working-directory: zephy
+      run: python3 -m venv ${{working-directory}}/.venv
+
+    - name: Activate virtual environment
+      run: |
+          source venv/bin/activate
+          pip install -r requirements.txt  # Install project dependencies
+          
     - name: Setup Zephyr environment
       working-directory: zephyr
       run: |
         pip3 install west
         west init -m git@github.com:Atmosic/apps zephyr/
         #west init -l zephyr/
-        cd zephyr
+        #cd zephyr
         west update
         west zephyr-export
         pip3 install -r zephyr/scripts/requirements.txt
