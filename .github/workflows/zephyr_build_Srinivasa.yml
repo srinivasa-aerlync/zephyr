@@ -3,7 +3,7 @@ name: Zephyr enviornment creation
 on: [workflow_dispatch, push]
 
 jobs:
-  build:
+  Zephyrenviornmentcreation:
     runs-on: self-hosted
     steps:
     - name: Checkout repository
@@ -30,7 +30,7 @@ jobs:
           pip install -r requirements.txt  # Install project dependencies
           
     - name: Setup Zephyr environment
-      working-directory: zephyr
+      #working-directory: zephyr
       run: |
         pip3 install west
         west init -m git@github.com:Atmosic/apps zephyr/
