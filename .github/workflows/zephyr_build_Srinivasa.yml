@@ -1,0 +1,35 @@
+name: Zephyr enviornment creation
+
+on: [workflow_dispatch, push, pull_request]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y --no-install-recommends git ninja-build gperf ccache dfu-util device-tree-compiler wget python3-pip python3-setuptools python3-wheel xz-utils file make gcc gcc-multilib g++-multilib libsdl2-dev
+
+    - name: Setup Zephyr environment
+      run: |
+        pip3 install west
+        west init -m git@github.com:Atmosic/apps zephyr/
+        #west init -l zephyr/
+        west update
+        west zephyr-export
+        pip3 install -r zephyr/scripts/requirements.txt
+
+    - name: Build Zephyr sample
+      run: |
+        source zephyr/zephyr-env.sh
+        west build -p auto -b ATMEVK-3330-QN-5 zephyr/samples/hello_world
+
+    - name: Archive build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifacts
+        path: build/zephyr/
