@@ -1,6 +1,6 @@
 name: Zephyr enviornment creation
 
-on: [workflow_dispatch, push, pull_request]
+on: [workflow_dispatch, push]
 
 jobs:
   build:
@@ -15,10 +15,12 @@ jobs:
         sudo apt install -y --no-install-recommends git ninja-build gperf ccache dfu-util device-tree-compiler wget python3-pip python3-setuptools python3-wheel xz-utils file make gcc gcc-multilib g++-multilib libsdl2-dev
 
     - name: Setup Zephyr environment
+      working-directory: zephyr
       run: |
         pip3 install west
         west init -m git@github.com:Atmosic/apps zephyr/
         #west init -l zephyr/
+        cd zephyr
         west update
         west zephyr-export
         pip3 install -r zephyr/scripts/requirements.txt
