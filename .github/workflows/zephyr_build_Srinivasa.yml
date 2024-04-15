@@ -38,11 +38,13 @@ jobs:
         west update
         west zephyr-export
         pip3 install -r zephyr/scripts/requirements.txt
+        pip3 install cryptography
 
     - name: Build Zephyr sample
       run: |
         source zephyr/zephyr-env.sh
-        west build -p auto -b ATMEVK-3330-QN-5 zephyr/samples/hello_world
+        #west build -p auto -b ATMEVK-3330-QN-5 zephyr/samples/hello_world
+        zephyr/boards/arm/atm33evk/support/run.sh -e -d -w LL -a zephyr/samples/hello_world -j -s 900028963 ATMEVK-3330-QN-5
 
     - name: Archive build artifacts
       uses: actions/upload-artifact@v2
