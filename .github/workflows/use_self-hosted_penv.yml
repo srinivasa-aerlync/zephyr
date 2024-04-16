@@ -12,6 +12,17 @@ jobs:
     - name: Set up Python environment
       run: |
         source ~/zephyrproject/.venv/bin/activate
+        
+    - name: Set date variable
+      id: set_date
+      run: echo "TODAY_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
+    - name: Show today's date
+      run: echo "Today's date is $TODAY_DATE"
+      
     - name: Run Python script
-      run: python /home/aerlync/Desktop/Aerlync/Atmosic_Automation/devicedetails.py
+      run: |
+        python /home/aerlync/Desktop/Aerlync/Atmosic_Automation/devicedetails.py
+        tar -cvf devicedetails${TODAY_DATE}.tar /home/aerlync/Desktop/Aerlync/Atmosic_Automation/devicedetails.py
+        mv -f devicedetails${TODAY_DATE}.tar /home/aerlync/archieve/
+      
