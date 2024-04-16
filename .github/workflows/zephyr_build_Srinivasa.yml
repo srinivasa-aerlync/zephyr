@@ -9,6 +9,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Set date variable
+      id: set_date
+      run: echo "TODAY_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        
     - name: Install dependencies
       #working-directory: zephyr
       run: |
@@ -46,9 +50,11 @@ jobs:
         source zephyr/zephyr-env.sh
         #west build -p auto -b ATMEVK-3330-QN-5 zephyr/samples/hello_world
         zephyr/boards/arm/atm33evk/support/run.sh -e -d -w LL -a zephyr/samples/hello_world -j -s 900028963 ATMEVK-3330-QN-5
-
+        tar -cvf hello_world_sample_ATM33_${TODAY_DATE}.tar build/
+        mv -f hello_world_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
+        
     - name: Archive build artifacts
       uses: actions/upload-artifact@v2
       with:
         name: build-artifacts
-        path: build/zephyr/
+        path: build/
