@@ -40,27 +40,27 @@ jobs:
         #west build -p auto -b ATMEVK-3330-QN-5 zephyr/samples/hello_world
         
         #Bluetooth beacon
-        zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a zephyr/samples/bluetooth/beacon -j -s 900028963 ATMEVK-3330-QN-5
+        zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a samples/bluetooth/beacon -j -s 900028963 ATMEVK-3330-QN-5
         tar -cvf bluetooth_beacon_sample_ATM33_${TODAY_DATE}.tar build/
         mv -f bluetooth_beacon_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
         
         #blinky_pwm
-        zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a zephyr/samples/basic/blinky_pwm -j -s 900028963 ATMEVK-3330-QN-5
+        zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a samples/basic/blinky_pwm -j -s 900028963 ATMEVK-3330-QN-5
         tar -cvf blinky_pwm_sample_ATM33_${TODAY_DATE}.tar build/
         mv -f blinky_pwm_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
         
         #PWM
-        zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a zephyr/tests/drivers/pwm/pwm_api -j -s 900028963 ATMEVK-3330-QN-5
+        zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a tests/drivers/pwm/pwm_api -j -s 900028963 ATMEVK-3330-QN-5
         tar -cvf pwm_api_sample_ATM33_${TODAY_DATE}.tar build/
         mv -f pwm_api_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
         
         #I2C
-        zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a zephyr/samples/sensor/lis2dh -j -s 900028963 ATMEVK-3330-QN-5
+        zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a samples/sensor/lis2dh -j -s 900028963 ATMEVK-3330-QN-5
         tar -cvf i2c_sample_ATM33_${TODAY_DATE}.tar build/
         mv -f i2c_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
         
         #SPI
-        zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a zephyr/samples/sensor/bme280 -j -s 900028963 ATMEVK-3330-QN-5
+        zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a samples/sensor/bme280 -j -s 900028963 ATMEVK-3330-QN-5
         tar -cvf spi_bme280_sample_ATM33_${TODAY_DATE}.tar build/
         mv -f spi_bme280_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
         
