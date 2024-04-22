@@ -14,10 +14,10 @@ jobs:
       id: set_date
       run: echo "TODAY_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
         
-    - name: Install dependencies
-      run: |
-        sudo apt update
-        sudo apt install -y --no-install-recommends git ninja-build gperf ccache dfu-util device-tree-compiler wget python3-pip python3-setuptools python3-wheel xz-utils file make gcc gcc-multilib g++-multilib libsdl2-dev
+    #- name: Install dependencies (One time activities and need to provide password as sudo
+    #  run: |
+    #    sudo apt update
+    #    sudo apt install -y --no-install-recommends git ninja-build gperf ccache dfu-util device-tree-compiler wget python3-pip python3-setuptools python3-wheel xz-utils file make gcc gcc-multilib g++-multilib libsdl2-dev
 
     - name: Set up Python
       uses: actions/setup-python@v2
