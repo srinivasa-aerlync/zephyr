@@ -1,6 +1,7 @@
 name: Zephyr enviornment creation
 
-on: [workflow_dispatch, push]
+#on: [workflow_dispatch, push]
+on: [workflow_dispatch]
 
 jobs:
   Zephyrenviornmentcreation:
