@@ -1,5 +1,5 @@
 name: Zephyr(west) flash and run python test scripts
-on: [workflow_dispatch]
+on: [workflow_dispatch, push]
 jobs:
   Zephyrflashandrunscript:
     runs-on: self-hosted
