@@ -12,9 +12,9 @@ jobs:
         ZEPHYR_BASE: ~/zephyr
         ZEPHYR_TOOLCHAIN_VARIANT: zephyr
       run: |
-        #cd ~/zephyr
+        cd ~/zephyr
         #ls -lart
-        #pwd
+        pwd
         source ~/zephyr/.venv/bin/activate
         echo source ~/zephyr/.venv/bin/activate      
         echo "Flash sample"
