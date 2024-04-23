@@ -11,8 +11,8 @@ jobs:
       env:
         ZEPHYR_BASE: ~/zephyr
         ZEPHYR_TOOLCHAIN_VARIANT: zephyr
-    - run: cd ~/zephyr
-    - run: ls -la
+    #- run: cd ~/zephyr
+    - run: ls -lart
     - run: pwd
     - run: source ~/zephyr/.venv/bin/activate
     - run: echo source ~/zephyr/.venv/bin/activate      
