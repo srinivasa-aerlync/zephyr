@@ -9,7 +9,7 @@ jobs:
 
     - name: Flash zephyr sample
       env:
-        ZEPHYR_BASE: ./
+        ZEPHYR_BASE: /home/aerlync/zephyr
         ZEPHYR_TOOLCHAIN_VARIANT: zephyr
       run: |
         cd ~/zephyr
