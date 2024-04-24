@@ -66,7 +66,10 @@ jobs:
         mv -f spi_bme280_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
         
         #hello_world
+          #Build only
         #zephyr/boards/arm/atm33evk/support/run.sh -e -b -w LL -a zephyr/samples/hello_world -j -s 900028963 ATMEVK-3330-QN-5
+        #Build and Flash
+        zephyr/boards/arm/atm33evk/support/run.sh -e -d -w LL -a zephyr/samples/hello_world -j -s 900028963 ATMEVK-3330-QN-5
         #tar -cvf hello_world_sample_ATM33_${TODAY_DATE}.tar build/
         #mv -f hello_world_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
         
