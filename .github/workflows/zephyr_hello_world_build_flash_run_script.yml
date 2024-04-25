@@ -1,0 +1,29 @@
+name: Zephyr hello world build flash & run automation
+
+on: [workflow_dispatch, push]
+#on: [workflow_dispatch]
+
+jobs:
+  Zephyrenviornmentcreation:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set date variable
+      id: set_date
+      run: echo "TODAY_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+      
+    - name: Build Zephyr sample
+      run: |
+        export ZEPHYR_SDK_INSTALL_DIR=/home/aerlync/zephyr-sdk-0.16.4
+        source zephyr/zephyr-env.sh
+        #Build and Flash
+        zephyr/boards/arm/atm33evk/support/run.sh -e -d -w LL -a zephyr/samples/hello_world -j -s 900028963 ATMEVK-3330-QN-5
+        tar -cvf hello_world_sample_ATM33_${TODAY_DATE}.tar build/
+        mv -f hello_world_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
+
+    - name: Initiate Python run
+      run: |
+        source ~/zephyr/.venv/bin/activate
+        pytest  -v -s ~/zephyr/Aerlync/Tests/BLE --alluredir allure-results
