@@ -40,4 +40,4 @@ jobs:
     - name: Initiate Python run
       run: |
         source ~/zephyr/.venv/bin/activate
-        pytest  -v -s ~/zephyr/Aerlync/Tests/BLE --alluredir allure-results
+        pytest ~/zephyr/Aerlync/Tests/BLE -v -s --alluredir allure-results
