@@ -14,13 +14,19 @@ jobs:
       id: set_date
       run: echo "TODAY_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
-    - name: zephyr 
-      env:
-        ZEPHYR_BASE: /home/aerlync/zephyr
-        ZEPHYR_TOOLCHAIN_VARIANT: zephyr
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+          python-version: 3.12
+        
+    - name: Setup Zephyr environment
       run: |
-       source ~/zephyr/.venv/bin/activate
-       echo source ~/zephyr/.venv/bin/activate   
+        pip3 install west
+        west init -m git@github.com:Atmosic/apps 
+        west update
+        west zephyr-export
+        pip3 install -r zephyr/scripts/requirements.txt
+        pip3 install cryptography
       
     - name: Build Zephyr sample
       run: |
