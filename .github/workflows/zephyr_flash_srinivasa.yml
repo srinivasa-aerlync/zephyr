@@ -17,7 +17,7 @@ jobs:
         source ~/zephyr/.venv/bin/activate
         echo source ~/zephyr/.venv/bin/activate      
         echo "Flash sample"
-        ./home/aerlync/zephyr/zephyr/boards/arm/atm33evk/support/run.sh -e -d -f -w LL -a zephyr/samples/hello_world -j -s 900036560 ATMEVK-3330-QN-5
+        /home/aerlync/zephyr/zephyr/boards/arm/atm33evk/support/run.sh -e -d -f -w LL -a zephyr/samples/hello_world -j -s 900036560 ATMEVK-3330-QN-5
         #west flash --verify --device=900036560 --jlink --skip-rebuild -d build/ATMEVK-3330-QN-5_ns/zephyr/samples/hello_world --use-elf --elf-file build/ATMEVK-3330-QN-5_ns/zephyr/samples/hello_world/zephyr/zephyr.elf --bin-file build/ATMEVK-3330-QN-5_ns/zephyr/samples/hello_world/zephyr/zephyr.signed.bin --jlink
         
     - name: Initiate Python run
