@@ -8,21 +8,19 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    #- name: Flash zephyr sample
-    #  env:
-    #    ZEPHYR_BASE: /home/aerlync/zephyr
-    #    ZEPHYR_TOOLCHAIN_VARIANT: zephyr
-    #  run: |
-    #    cd ~/zephyr
-    #    #ls -lart
-    #    pwd
-    #    source ~/zephyr/.venv/bin/activate
-    #    echo source ~/zephyr/.venv/bin/activate      
-    #    echo "Flash sample"
-    #    west flash --verify --device=900036560 --jlink --skip-rebuild -d build/ATMEVK-3330-QN-5_ns/zephyr/samples/hello_world --use-elf --elf-file build/ATMEVK-3330-QN-5_ns/zephyr/samples/hello_world/zephyr/zephyr.elf --bin-file build/ATMEVK-3330-QN-5_ns/zephyr/samples/hello_world/zephyr/zephyr.signed.bin --jlink
+    - name: Flash zephyr sample
+      env:
+        ZEPHYR_BASE: /home/aerlync/zephyr
+        ZEPHYR_TOOLCHAIN_VARIANT: zephyr
+      run: |
+        cd ~/zephyr
+        source ~/zephyr/.venv/bin/activate
+        echo source ~/zephyr/.venv/bin/activate      
+        echo "Flash sample"
+        west flash --verify --device=900036560 --jlink --skip-rebuild -d build/ATMEVK-3330-QN-5_ns/zephyr/samples/hello_world --use-elf --elf-file build/ATMEVK-3330-QN-5_ns/zephyr/samples/hello_world/zephyr/zephyr.elf --bin-file build/ATMEVK-3330-QN-5_ns/zephyr/samples/hello_world/zephyr/zephyr.signed.bin --jlink
         
     - name: Initiate Python run
       run: |
         source ~/zephyr/.venv/bin/activate
-        pytest  -v -s ~/zephyr/Aerlync/Tests/BLE --alluredir allure-results
+        pytest ~/zephyr/Aerlync/Tests/BLE -v -s --alluredir allure-results
        
