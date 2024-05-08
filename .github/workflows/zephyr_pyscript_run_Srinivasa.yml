@@ -1,0 +1,16 @@
+name: Zephyr pyscripts run
+on: [workflow_dispatch, push]
+#on: [workflow_dispatch]
+jobs:
+  Zephyrpyscriptrun:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Initiate Python run
+      run: |
+        source ~/zephyr/.venv/bin/activate
+        #pytest ~/zephyr/Aerlync/Tests/BLE -v -s --alluredir allure-results
+        pytest -v -s ~/zephyr/Aerlync/Tests/SPI/test_spi_bme280.py --alluredir allure-results/
+        pytest -v -s ~/zephyr/Aerlync/Tests/I2C/test_i2c_bme280.py --alluredir allure-results/
