@@ -10,6 +10,7 @@ jobs:
 
     - name: Initiate Python run
       run: |
+        cd /home/aerlync/zephyr/Aerlync
         source ~/zephyr/.venv/bin/activate
         #pytest ~/zephyr/Aerlync/Tests/BLE -v -s --alluredir allure-results
         pytest -v -s ~/zephyr/Aerlync/Tests/SPI/test_spi_bme280.py --alluredir allure-results/
