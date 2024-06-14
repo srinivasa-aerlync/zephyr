@@ -1,0 +1,38 @@
+name: multi_peripheral_multi_commit
+
+on: [workflow_dispatch, push, pull_request]
+
+jobs:
+  test-equipment1:
+    runs-on: self-hosted
+    concurrency:
+      group: equipment1-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Equipment 1
+        run: |
+          if [ -e /dev/ttyUSB1 ]; then
+            echo "Equipment 1 is connected to /dev/ttyUSB1"
+          else
+            echo "Equipment 1 is not connected"
+            exit 1
+      - name: Run tests for Equipment 1
+        run: pytest -v -s Tests/BLE/test_ble_scan.py --alluredir=allure-results
+
+  test-equipment2:
+    runs-on: self-hosted
+    concurrency:
+      group: equipment2-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Equipment 2
+        run: |
+          if [ -e /dev/ttyACM1 ]; then
+            echo "Equipment 2 is connected to /dev/ttyACM1"
+          else
+            echo "Equipment 2 is not connected"
+            exit 1
+      - name: Run tests for Equipment 2
+        run: pytest -v -s Tests/BLE/test_ble_connect.py --alluredir=allure-results
