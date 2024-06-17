@@ -9,15 +9,35 @@ jobs:
       group: equipment1-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Equipment 1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
+      - name: install dependencies
+        run: pip3 install requirements.txt
+        
+      - name: Set date variable
+        id: set_date
+        run: echo "TODAY_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        
+      - name: Set up ATM330e 7x7
         run: |
-          if [ -e /dev/ttyUSB1 ]; then
-            echo "Equipment 1 is connected to /dev/ttyUSB1"
+          if [ -e /dev/ttyACM1 ]; then
+            echo "ATM330e 7x7 is connected to /dev/ttyACM1"
           else
-            echo "Equipment 1 is not connected"
+            echo "ATM330e 7x7 is not connected"
             exit 1
-      - name: Run tests for Equipment 1
+
+      - name: Build and flash bluetooth beacon sample
+        run: |
+          #Bluetooth beacon
+          zephyr/boards/arm/atm33evk/support/run.sh -e -d -w LL -a zephyr/samples/bluetooth/beacon -j -s 900028879 ATMEVK-3330-QN-5
+          tar -cvf bluetooth_beacon_sample_ATM33_${TODAY_DATE}.tar build/
+          
+      - name: Run tests for ATM330e 7x7
         run: pytest -v -s Tests/BLE/test_ble_scan.py --alluredir=allure-results
 
   test-equipment2:
@@ -27,12 +47,19 @@ jobs:
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Equipment 2
+      - name: Set up ATM2221
         run: |
-          if [ -e /dev/ttyACM1 ]; then
-            echo "Equipment 2 is connected to /dev/ttyACM1"
+          if [ -e /dev/ttyUSB1 ]; then
+            echo "ATM2221 is connected to /dev/ttyUSB1"
           else
-            echo "Equipment 2 is not connected"
+            echo "ATM2221 is not connected"
             exit 1
-      - name: Run tests for Equipment 2
+
+      - name: Build and flash bluetooth beacon sample
+        run: |
+          #Bluetooth beacon
+          zephyr/boards/arm/<atmevk>/support/run.sh -e -d -w LL -a zephyr/samples/bluetooth/beacon -j -s <serial> <ATMEVKModelName>
+          tar -cvf bluetooth_beacon_sample_ATM22_${TODAY_DATE}.tar build/
+          
+      - name: Run tests for ATM2221
         run: pytest -v -s Tests/BLE/test_ble_connect.py --alluredir=allure-results
