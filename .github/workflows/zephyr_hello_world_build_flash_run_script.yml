@@ -33,7 +33,7 @@ jobs:
         #export ZEPHYR_SDK_INSTALL_DIR=/home/aerlync/zephyr-sdk-0.16.4
         #source zephyr/zephyr-env.sh
         #Build and Flash
-        zephyr/boards/arm/atm33evk/support/run.sh -e -d -w LL -a zephyr/samples/hello_world -j -s 900036560 ATMEVK-3330-QN-5
+        zephyr/boards/arm/atm33evk/support/run.sh -d -w LL -a zephyr/samples/hello_world -j -s 900036560 ATMEVK-3330-QN-5
         #tar -cvf hello_world_sample_ATM33_${TODAY_DATE}.tar build/
         #mv -f hello_world_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
 
@@ -43,7 +43,7 @@ jobs:
       env:
        TOKEN: ${{ secrets.ACCESS_TOKEN }}
       run: |
-        git clone https://${TOKEN}:x-oauth-basic@github.com/sundar-aerlync/Test-aerlync.git
+        git clone https://$GIT_TOKEN@github.com@github.com/sundar-aerlync/Test-aerlync.git
         pip3 install -r requirements.txt
         #source ~/zephyr/.venv/bin/activate
         pytest Tests/Hello_World/test_hello_world_sample.py --port /dev/ttyACM1 --evk ATM3330 --alluredir allure-results/
