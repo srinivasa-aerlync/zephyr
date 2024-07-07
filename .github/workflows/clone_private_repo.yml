@@ -13,4 +13,4 @@ jobs:
       env:
         PAT_TOKEN: ${{ secrets.TOKEN }}
         run: |
-         git clone https://PAT_TOKEN@github.com/srinivasa-aerlync/Test-aerlync.git
+         git clone https://PAT_TOKEN@github.com/srinivasa-aerlync/Test-aerlync
