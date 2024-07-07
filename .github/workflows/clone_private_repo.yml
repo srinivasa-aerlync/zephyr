@@ -7,10 +7,11 @@ jobs:
     runs-on: self-hosted
     steps:           
     - name: Git Tests
-      uses: srinivasa-aerlync/Test-aerlync@v2
+      uses: actions/checkout@master
       with:
        owner: 'srinivasa-aerlync'
-       repository: 'Test-aerlync'
-       access-token: ${{ secrets.ACCESS_TOKEN }}
+       repository: 'srinivasa-aerlync/Test-aerlync'
+       token: ${{ secrets.TOKEN }}
+       #access-token: ${{ secrets.TOKEN }}
       #run: |
       #  git clone https://${GITHUB_TOKEN}:x-oauth-basic@github.com/srinivasa-aerlync/Test-aerlync.git
