@@ -6,8 +6,8 @@ jobs:
   clonepvtrepo:
     runs-on: self-hosted
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Clone sundar-aerlync/Test-aerlync
+      uses: sundar-aerlync/clone-github-repo-action@v2.3
     - name: Git Tests
       run: |
-        git clone https://@github.com/sundar-aerlync/Test-aerlync.git
+        git clone https://$GIT_TOKEN@github.com/sundar-aerlync/Test-aerlync.git
