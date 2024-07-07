@@ -11,7 +11,6 @@ jobs:
     - name: Git Tests
       uses: actions/checkout@v3
       with:       
-       secrets: inherit
        token: ${{ secrets.mytoken }}
        repository: srinivasa-aerlync/Test-aerlync
        ref: main
@@ -19,4 +18,4 @@ jobs:
       env:
         PAT_TOKEN: ${{ secrets.mytoken }}
         run: |
-         git clone https://srinivasa-aerlync:${ PAT_TOKEN }@github.com/srinivasa-aerlync/Test-aerlync.git
+         git clone https://srinivasa-aerlync:${{ PAT_TOKEN }}@github.com/srinivasa-aerlync/Test-aerlync.git
