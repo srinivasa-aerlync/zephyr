@@ -6,10 +6,8 @@ jobs:
   clonepvtrepo:
     runs-on: self-hosted
     steps:
-    #- name: Clone sundar-aerlync/Test-aerlync
-    #  uses: sundar-aerlync/clone-github-repo-action@v2.3
     - name: Git Tests
       env:
-       TOKEN: ${{ secrets._TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        git clone https://srinivasa-aerlync:$TOKEN@github.com/srinivasa-aerlync/Test-aerlync.git
+        git clone https://github.com/srinivasa-aerlync/Test-aerlync.git
