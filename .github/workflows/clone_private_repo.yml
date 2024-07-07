@@ -12,4 +12,4 @@ jobs:
       env:
        TOKEN: ${{ secrets._TOKEN }}
       run: |
-        git clone https://srinivasa-aerlync:${{ TOKEN }}@github.com/srinivasa-aerlync/Test-aerlync.git
+        git clone https://srinivasa-aerlync:$TOKEN@github.com/srinivasa-aerlync/Test-aerlync.git
