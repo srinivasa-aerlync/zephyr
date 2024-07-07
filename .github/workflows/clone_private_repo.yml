@@ -6,6 +6,12 @@ jobs:
   clonepvtrepo:
     runs-on: self-hosted
     steps:
+    - name: Checkout this repository
+      uses: actions/checkout@v3
+      with:
+          # Use the GitHub token to clone the repository
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
     - name: Git Tests
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
