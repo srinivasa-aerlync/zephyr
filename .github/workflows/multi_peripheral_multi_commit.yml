@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: 3.12
       - name: install dependencies
-        run: pip3 install requirements.txt
+        run: pip3 install -r requirements.txt
         
       - name: Set date variable
         id: set_date
