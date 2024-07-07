@@ -10,10 +10,10 @@ jobs:
     steps:           
     - name: Git Tests
       uses: actions/checkout@v3
-      with:
-       repository: srinivasa-aerlync/Test-aerlync
+      with:       
        secrets: inherit
-       #token: ${{ secrets.mytoken }}
+       token: ${{ secrets.mytoken }}
+       repository: srinivasa-aerlync/Test-aerlync
        ref: main
        path: master
       env:
