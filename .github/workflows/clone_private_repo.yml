@@ -18,4 +18,4 @@ jobs:
       env:
         PAT_TOKEN: ${{ secrets.mytoken }}
         run: |
-         git clone https://srinivasa-aerlync:${{ PAT_TOKEN }}@github.com/srinivasa-aerlync/Test-aerlync.git
+         git clone https://srinivasa-aerlync:${ PAT_TOKEN }@github.com/srinivasa-aerlync/Test-aerlync.git
