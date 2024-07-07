@@ -10,13 +10,13 @@ jobs:
       uses: actions/checkout@v3
       with:
        repository: srinivasa-aerlync/Test-aerlync
-       token: ${{ secrets.TOKEN }}
+       token: ${{ secrets.mytoken }}
        ref: main
        path: master
        ssh-strict: true
        persist-credentials: true
        clean: true
       env:
-        PAT_TOKEN: ${{ secrets.TOKEN }}
+        PAT_TOKEN: ${{ secrets.mytoken }}
         run: |
          git clone https://PAT_TOKEN@github.com/srinivasa-aerlync/Test-aerlync.git
