@@ -25,8 +25,8 @@ jobs:
         west init -m git@github.com:Atmosic/apps 
         west update
         #west zephyr-export
-        #pip3 install -r zephyr/scripts/requirements.txt
-        #pip3 install cryptography
+        pip3 install -r zephyr/scripts/requirements.txt
+        pip3 install cryptography
       
     - name: Build Zephyr sample
       run: |
