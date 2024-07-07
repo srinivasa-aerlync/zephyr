@@ -11,8 +11,11 @@ jobs:
       with:
        repository: srinivasa-aerlync/Test-aerlync
        token: ${{ secrets.TOKEN }}
-       ref: 'main'
+       ref: main
        path: master
+       ssh-strict: true
+       persist-credentials: true
+       clean: true
       env:
         PAT_TOKEN: ${{ secrets.TOKEN }}
         run: |
