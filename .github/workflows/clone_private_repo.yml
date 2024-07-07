@@ -1,0 +1,13 @@
+name: clone_private_repo
+
+#on: [workflow_dispatch, push]
+on: [workflow_dispatch]
+jobs:
+  clonepvtrepo:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Git Tests
+      run: |
+        git clone https://srinivasa-aerlync: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@github.com/sundar-aerlync/Test-aerlync.git
