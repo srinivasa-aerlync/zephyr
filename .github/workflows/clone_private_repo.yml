@@ -7,10 +7,10 @@ jobs:
     runs-on: self-hosted
     steps:           
     - name: Git Tests
-      uses: actions/checkout@master
+      uses: actions/checkout@v3
       with:
-       repository: 'srinivasa-aerlync/Test-aerlync'
+       repository: srinivasa-aerlync/Test-aerlync
       env:
         PAT_TOKEN: ${{ secrets.TOKEN }}
         run: |
-         git clone https://PAT_TOKEN@github.com/srinivasa-aerlync/Test-aerlync
+         git clone https://PAT_TOKEN@github.com/srinivasa-aerlync/Test-aerlync.git
