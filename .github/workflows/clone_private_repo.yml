@@ -10,12 +10,10 @@ jobs:
       uses: actions/checkout@v3
       with:
        repository: srinivasa-aerlync/Test-aerlync
+       secrets: inherit
        #token: ${{ secrets.mytoken }}
        ref: main
        path: master
-       ssh-strict: true
-       persist-credentials: true
-       clean: true
       env:
         PAT_TOKEN: ${{ secrets.mytoken }}
         run: |
