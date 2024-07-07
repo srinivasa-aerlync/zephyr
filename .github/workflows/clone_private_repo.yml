@@ -10,7 +10,7 @@ jobs:
       uses: actions/checkout@v3
       with:
        repository: srinivasa-aerlync/Test-aerlync
-       token: ${{ secrets.mytoken }}
+       #token: ${{ secrets.mytoken }}
        ref: main
        path: master
        ssh-strict: true
