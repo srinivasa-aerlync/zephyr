@@ -2,6 +2,8 @@ name: clone_private_repo
 
 #on: [workflow_dispatch, push]
 on: [workflow_dispatch]
+permissions:
+  contents: write
 jobs:
   clonepvtrepo:
     runs-on: self-hosted
