@@ -12,4 +12,4 @@ jobs:
       env:
        TOKEN: ${{ secrets._TOKEN }}
       run: |
-        git checkout https:/x-access-token:${{ TOKEN }}@github.com/sundar-aerlync/Test-aerlync.git
+        git clone https://github.com/srinivasa-aerlync/Test-aerlync.git
