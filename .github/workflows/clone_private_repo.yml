@@ -7,7 +7,7 @@ jobs:
     runs-on: self-hosted
     steps:           
     - name: Git Tests
-      uses: srinivasa-aerlync/Test-aerlync@v3
+      uses: srinivasa-aerlync/Test-aerlync@v2
       with:
        owner: 'srinivasa-aerlync'
        repository: 'Test-aerlync'
