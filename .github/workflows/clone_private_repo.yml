@@ -9,5 +9,7 @@ jobs:
     #- name: Clone sundar-aerlync/Test-aerlync
     #  uses: sundar-aerlync/clone-github-repo-action@v2.3
     - name: Git Tests
+      env:
+       TOKEN: ${{ secrets._TOKEN }}
       run: |
-        git clone https:/x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/sundar-aerlync/Test-aerlync.git
+        git checkout https:/x-access-token:${{ TOKEN }}@github.com/sundar-aerlync/Test-aerlync.git
