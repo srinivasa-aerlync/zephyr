@@ -10,7 +10,7 @@ jobs:
       uses: actions/checkout@master
       with:
        repository: 'srinivasa-aerlync/Test-aerlync'
-       #token: ${{ secrets.TOKEN }}
-       #access-token: ${{ secrets.TOKEN }}
-      #run: |
-      #  git clone https://${GITHUB_TOKEN}:x-oauth-basic@github.com/srinivasa-aerlync/Test-aerlync.git
+      env:
+        PAT_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+         git clone https://PAT_TOKEN@github.com/srinivasa-aerlync/Test-aerlync.git
