@@ -40,8 +40,10 @@ jobs:
     - name: Initiate Python scripts run
       uses: actions/checkout@v3
     - name: Git Tests
+      env:
+       TOKEN: ${{ secrets.ACCESS_TOKEN }}
       run: |
-        git clone https://github.com/sundar-aerlync/Test-aerlync.git
+        git clone https://${TOKEN}:x-oauth-basic@github.com/sundar-aerlync/Test-aerlync.git
         pip3 install -r requirements.txt
         #source ~/zephyr/.venv/bin/activate
         pytest Tests/Hello_World/test_hello_world_sample.py --port /dev/ttyACM1 --evk ATM3330 --alluredir allure-results/
