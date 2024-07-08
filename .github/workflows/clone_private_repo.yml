@@ -10,12 +10,14 @@ jobs:
     steps:           
     - name: Git Tests
       uses: actions/checkout@v3
-      with:       
-       token: ${{ secrets.mytoken }}
-       repository: srinivasa-aerlync/Test-aerlync
-       ref: main
-       path: master
       env:
         PAT_TOKEN: ${{ secrets.mytoken }}
+      with:      
+        #token: ${{ secrets.mytoken }}
+        repository: srinivasa-aerlync/Test-aerlync
+        ref: main
+        path: master
+      #env:
+      #  PAT_TOKEN: ${{ secrets.mytoken }}
         run: |
          git clone https://srinivasa-aerlync:${ PAT_TOKEN }@github.com/srinivasa-aerlync/Test-aerlync.git
