@@ -13,7 +13,7 @@ jobs:
       env:
         PAT_TOKEN: ${{ secrets.mytoken }}
       with:      
-        #token: ${{ secrets.mytoken }}
+        token: ${{ secrets.mytoken }}
         repository: srinivasa-aerlync/Test-aerlync
         ref: main
         path: master
