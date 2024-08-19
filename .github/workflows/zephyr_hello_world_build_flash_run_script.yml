@@ -35,7 +35,8 @@ jobs:
         #export ZEPHYR_SDK_INSTALL_DIR=/home/aerlync/zephyr-sdk-0.16.4
         #source zephyr/zephyr-env.sh
         #Build and Flash
-        zephyr/zephyr/zephyrproject-rc-24.08.0/zephyr/boards/arm/atm33evk/support/run.sh -d -w LL -a zephyr/samples/hello_world -j -s 900036560 ATMEVK-3330-QN-5
+        cd zephyrproject-rc-24.08.0
+        zephyr/boards/arm/atm33evk/support/run.sh -d -w LL -a zephyr/samples/hello_world -j -s 900036560 ATMEVK-3330-QN-5
         #tar -cvf hello_world_sample_ATM33_${TODAY_DATE}.tar build/
         #mv -f hello_world_sample_ATM33_${TODAY_DATE}.tar /home/aerlync/archieve/
 
