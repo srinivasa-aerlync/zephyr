@@ -46,7 +46,7 @@ jobs:
       env:
        TOKEN: ${{ secrets.ACCESS_TOKEN }}
       run: |
-        git clone https://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@github.com@github.com/srinivasa-aerlync/Test-aerlync.git
+        git clone https://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@github.com@github.com/srinivasa-aerlync/Test-aerlync
         pip3 install -r requirements.txt
         #source ~/zephyr/.venv/bin/activate
         pytest Tests/Hello_World/test_hello_world_sample.py --port /dev/ttyACM1 --evk ATM3330 --alluredir allure-results/
