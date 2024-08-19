@@ -22,7 +22,9 @@ jobs:
     - name: Setup Zephyr environment
       run: |
         pip3 install west
-        west init -m git@github.com:Atmosic/apps 
+        west init --mr rc_24.08.0_test -m git@github.com:Atmosic/apps zephyrproject-rc-24.08.0
+        #west init -m git@github.com:Atmosic/apps 
+        cd zephyrproject-rc-24.08.0
         west update
         #west zephyr-export
         pip3 install -r zephyr/scripts/requirements.txt
